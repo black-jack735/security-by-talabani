@@ -33,7 +33,7 @@ client.on('guildMemberAdd', member => {
         let embed = new Discord.RichEmbed()
         .setColor('RANDOM')
         .setThumbnail(memberavatar)
-        .addField(':bust_in_silhouette: | name : ', `${member}`)
+        .addField(':bust_in_silhouette: |نو : ', `${member}`)
         .addField(':microphone2: | Welcome!', `Welcome to the server, ${member}`)
         .addField(':id: | User :', "**[" + `${member.id}` + "]**")
         .addField(':family_mwgb: | تـۆکـەسی ژمارە', `${member.guild.memberCount}`)
