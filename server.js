@@ -27,7 +27,7 @@ client.on('guildMemberAdd', member => {
  
  
 client.on('guildMemberAdd', member => {
-    let channel = member.guild.channels.find('name', 'welcome');
+    let channel = member.guild.channels.find('name', 'general');
     let memberavatar = member.user.avatarURL
         if (!channel) return;
         let embed = new Discord.RichEmbed()
@@ -36,7 +36,7 @@ client.on('guildMemberAdd', member => {
         .addField(':bust_in_silhouette: | name : ', `${member}`)
         .addField(':microphone2: | Welcome!', `Welcome to the server, ${member}`)
         .addField(':id: | User :', "**[" + `${member.id}` + "]**")
-        .addField(':family_mwgb: | Your are the member', `${member.guild.memberCount}`)
+        .addField(':family_mwgb: | تـۆکـەسی ژمارە', `${member.guild.memberCount}`)
         .addField("Name", `<@` + `${member.id}` + `>`, true)
         .addField('Server', `${member.guild.name}`, true )
         .setFooter(`**${member.guild.name}**`)
