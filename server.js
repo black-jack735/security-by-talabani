@@ -59,7 +59,7 @@ client.on('guildMemberRemove', member => {
         .addField('Bye Bye :(', 'We will all miss you!')
         .addField('The server now as', `${member.guild.memberCount}` + " members")
         .setFooter(`**${member.guild.name}`)
-        .setTimestamp()
+        .setTimestamp(Imajewelcome)
  
         channel.sendEmbed(embed);
 });
