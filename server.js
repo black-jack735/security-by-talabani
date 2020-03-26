@@ -27,7 +27,7 @@ client.on('guildMemberAdd', member => {
  
  
 client.on('guildMemberAdd', member => {
-    let channel = member.guild.channels.find('name', 'ᴡᴇʟᴄᴏᴍᴇ');
+    let channel = member.guild.channels.find('name', '-welcome');
     let memberavatar = member.user.avatarURL
         if (!channel) return;
         let embed = new Discord.RichEmbed()
@@ -48,7 +48,7 @@ client.on('guildMemberAdd', member => {
  
  
 client.on('guildMemberRemove', member => {
-    let channel = member.guild.channels.find('name', 'ʟᴇᴀᴠᴇ');
+    let channel = member.guild.channels.find('name', 'leave');
     let memberavatar = member.user.avatarURL
         if (!channel) return;
         let embed = new Discord.RichEmbed()
@@ -67,4 +67,4 @@ client.on('guildMemberRemove', member => {
  
    
  
-client.login('NjgzNTg3OTg5NTQ0NTAxMjY1.Xltu-Q.NuajNRiTHKZmeT66uFlygYNCmVM');
+client.login('NjkyNzA5NzI1NjYxNDI5Nzky.Xnyebw.-m9pIR3T1e6WX2ZEvAKSkW5IJ0I');
