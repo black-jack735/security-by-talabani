@@ -38,12 +38,10 @@ client.on('guildMemberAdd', member => {
         .addField(':bust_in_silhouette: | نـــاو ： ', `${member}`)
         .addField(':microphone2: | 𝐖𝐄𝐋𝐂𝐎𝐌𝐄🌹', "**¦" + `بەخـێربێیت بۆ سـێرڤـەری             LED GAMING` + "¦**")
         .addField(':id: | ئــایــدی میــمــبــەر ：', "**⌜" + `${member.id}` + "⌟**") 
-      
-      .addField('🔻ڪاتی هاتـنە نــاوەوەۍ سێرڤـەر🔻', `${moment(member.joinedAt).format('D/M/YYYY h:mm a')} \n\`\`${moment(member.joinedAt).startOf(' ').fromNow()}\`\``, true)
         .addField(':1234: | تـۆکـەسی ژمارە：', "**¦" + `${member.guild.memberCount}` + "¦**")
         .addField(':shield:|𝐒𝐄𝐑𝐕𝐄𝐑：', `${member.guild.name}`, true )
         .setImage("https://cdn.discordapp.com/attachments/637930050255061035/693198092513574932/20200327_234110.gif")
-        .setFooter(`**${member.guild.name}**`)
+        .setFooter(`◢${member.guild.name}◣`)
         .setTimestamp()
  
         channel.sendEmbed(embed);
@@ -53,7 +51,7 @@ client.on('guildMemberAdd', member => {
         
 
 
-)""
+
 });
  
  
