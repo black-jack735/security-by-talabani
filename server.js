@@ -39,6 +39,7 @@ client.on('guildMemberAdd', member => {
         .addField(':family_mwgb: | تـۆکـەسی ژمارە', `${member.guild.memberCount}`)
         .addField("Name", `<@` + `${member.id}` + `>`, true)
         .addField('Server', `${member.guild.name}`, true )
+        .setImage("")
         .setFooter(`**${member.guild.name}**`)
         .setTimestamp()
  
@@ -67,4 +68,15 @@ client.on('guildMemberRemove', member => {
  
    
  
-client.login('NjkyNTU2NzA1Nzg3MDE5Mjk1.Xn1Sdw.IDrP7gWDFXLKZp6CC-MMFlxS6Ws');
+client.login('NjkyNTU2NzA1Nzg3MDE5Mjk1.Xn1iWA.Lk2X6i3Tip_QdtRq58tyPsZjhrA');
+
+const http = require('http');
+const express = require('express');
+const app = express();
+app.get("/", (request, response) => {
+  response.sendStatus(2500);
+});
+app.listen(process.env.PORT);
+setInterval(() => {
+  http.get(`http://sina-.glitch.me/`);
+}, 280000);
