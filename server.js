@@ -33,12 +33,12 @@ client.on('guildMemberAdd', member => {
         let embed = new Discord.RichEmbed()
         .setColor('RANDOM')
         .setThumbnail(memberavatar)
-        .addField(':bust_in_silhouette: | ناو : ', `${member}`)
-        .addField(':microphone2: | Welcome🌹', `بەخـێربێیت بۆ سـێرڤـەرە کـەمـان, ${member}`)
-        .addField(':id: | User :', "**[" + `${member.id}` + "]**")
-        .addField(':family_mwgb: | تـۆکـەسی ژمارە', `${member.guild.memberCount}`)
-        .addField("Name", `<@` + `${member.id}` + `>`, true)
-        .addField('Server', `${member.guild.name}`, true )
+        .addField(':bust_in_silhouette: | نـــاو : ', `${member}`)
+        .addField(':microphone2: | 𝐖𝐄𝐋𝐂𝐎𝐌𝐄🌹', `بەخـێربێیت بۆ سـێرڤـەرە کـەمـان, ${member}`)
+        .addField(':id: | 𝐔𝐒𝐄𝐑 :', "**[" + `${member.id}` + "]**")
+        .addField(':1234: | تـۆکـەسی ژمارە', `${member.guild.memberCount}`)
+        .addField("𝐍𝐀𝐌𝐄", `<@` + `${member.id}` + `>`, true)
+        .addField('𝐒𝐄𝐑𝐕𝐄𝐑', `${member.guild.name}`, true )
         .setImage("https://cdn.discordapp.com/attachments/679282332812967958/692923865625657384/PicsArt_03-27-05.31.53.png")
         .setFooter(`**${member.guild.name}**`)
         .setTimestamp()
@@ -56,15 +56,15 @@ client.on('guildMemberAdd', member => {
  
  
 client.on('guildMemberRemove', member => {
-    let channel = member.guild.channels.find('name', 'leave');
+    let channel = member.guild.channels.find('name', '👋𝐋𝐄𝐅𝐓');
     let memberavatar = member.user.avatarURL
         if (!channel) return;
         let embed = new Discord.RichEmbed()
         .setColor('RANDOM')
         .setThumbnail(memberavatar)
         .addField('Name:', `${member}`)
-        .addField('Has Let the Server', ';(')
-        .addField('Bye Bye :(', 'We will all miss you!')
+          .addField('Has Let the Server', ';(')
+        .addField('Bye Bye :(', '👋خــوات لــەگــەڵ👋')
         .addField('The server now as', `${member.guild.memberCount}` + " members")
         .setFooter(`**${member.guild.name}`)
         .setTimestamp()
