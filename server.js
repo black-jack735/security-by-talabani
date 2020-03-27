@@ -34,16 +34,22 @@ client.on('guildMemberAdd', member => {
         .setColor('RANDOM')
         .setThumbnail(memberavatar)
         .addField(':bust_in_silhouette: | ناو : ', `${member}`)
-        .addField(':microphone2: | Welcome!', `بەخـێربێیت بۆ سـێرڤـەرە کـەمـان, ${member}`)
+        .addField(':microphone2: | Welcome🌹', `بەخـێربێیت بۆ سـێرڤـەرە کـەمـان, ${member}`)
         .addField(':id: | User :', "**[" + `${member.id}` + "]**")
         .addField(':family_mwgb: | تـۆکـەسی ژمارە', `${member.guild.memberCount}`)
         .addField("Name", `<@` + `${member.id}` + `>`, true)
         .addField('Server', `${member.guild.name}`, true )
-        .setImage("")
-        .setFooter(`**${member.guild.name}**`)
-        .setTimestamp()
+        .setImage("https://cdn.discordapp.com/attachments/679282332812967958/692923865625657384/PicsArt_03-27-05.31.53.png")
+        .setfooter(`${h.tag}`, "https://cdn.discordapp.com/attachments/679282332812967958/686677045723398162/655064792200904715.gif")
+        
+        setFooter(`${h.tag}`, "https://cdn.discordapp.com/attachments/679282332812967958/686677045723398162/655064792200904715.gif")
+     
+    welcomer.send({ embed: norelden });
+     
+    
+        
  
-        channel.sendEmbed(embed);
+        
 });
  
  
