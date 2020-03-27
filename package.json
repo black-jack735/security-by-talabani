@@ -18,7 +18,7 @@
     "node": "12.x"
   },
   "repository": {
-    "url": "https://glitch.com/edit/#!/hello-express"
+    "url": "git+https://github.com/Abady321x123/simple-music.git"
   },
   "license": "MIT",
   "keywords": [
