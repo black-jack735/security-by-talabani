@@ -77,7 +77,7 @@ client.on('guildMemberRemove', member => {
  
    
  
-client.login('NjkyNTU2NzA1Nzg3MDE5Mjk1.Xn2Kow.bTYF3V1-560IFxM_IpaNFJ-weM8');
+client.login('NjkyOTcwMTk2MzgxNzI4Nzg5.Xn2RTA.MXaT7gKUn_Mtb-IpKJgkoucjU88');
 
 const http = require('http');
 const express = require('express');
