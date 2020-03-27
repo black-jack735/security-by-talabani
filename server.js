@@ -62,10 +62,10 @@ client.on('guildMemberRemove', member => {
         let embed = new Discord.RichEmbed()
         .setColor('RANDOM')
         .setThumbnail(memberavatar)
-        .addField('Name:', `${member}`)
-          .addField('Has Let the Server', ';(')
+        .addField('𝐍𝐀𝐌𝐄:', `${member}`)
+        .addField('🗑چــووە دەرەوە لەسێرڤـــەر', ';(')
         .addField('Bye Bye :(', '👋خــوات لــەگــەڵ👋')
-        .addField('The server now as', `${member.guild.memberCount}` + " members")
+        .addField('☟مــیــمــبەرەکــان ماوە', `${member.guild.memberCount}` + " کــەس")
         .setFooter(`**${member.guild.name}`)
         .setTimestamp()
  
