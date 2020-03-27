@@ -41,7 +41,7 @@ client.on('guildMemberAdd', member => {
         .addField(':1234: | تـۆکـەسی ژمارە', `${member.guild.memberCount}`)
         .addField("𝐍𝐀𝐌𝐄", `<@` + `${member.id}` + `>`, true)
         .addField('𝐒𝐄𝐑𝐕𝐄𝐑', `${member.guild.name}`, true )
-        .setImage("https://cdn.discordapp.com/attachments/679282332812967958/692923865625657384/PicsArt_03-27-05.31.53.png")
+        .setImage("https://cdn.discordapp.com/attachments/637930050255061035/693198092513574932/20200327_234110.gif")
         .setFooter(`**${member.guild.name}**`)
         .setTimestamp()
  
