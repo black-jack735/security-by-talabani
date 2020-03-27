@@ -77,15 +77,6 @@ client.on('guildMemberRemove', member => {
  
    
  
-client.login('NjkyOTcwMTk2MzgxNzI4Nzg5.Xn2RTA.MXaT7gKUn_Mtb-IpKJgkoucjU88');
+client.login('NjkyOTcwMTk2MzgxNzI4Nzg5.Xn2fTw.UVRn206PuAU-VgwW4Y2FB2RfuRA');
 
-const http = require('http');
-const express = require('express');
-const app = express();
-app.get("/", (request, response) => {
-  response.sendStatus(2500);
-});
-app.listen(process.env.PORT);
-setInterval(() => {
-  http.get(`http://sina-.glitch.me/`);
-}, 280000);
+
