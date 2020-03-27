@@ -36,7 +36,7 @@ client.on('guildMemberAdd', member => {
         .setColor('RANDOM')
         .setThumbnail(memberavatar)
         .addField(':bust_in_silhouette: | نـــاو : ', `${member}`)
-        .addField(':microphone2: | 𝐖𝐄𝐋𝐂𝐎𝐌𝐄🌹', `بەخـێربێیت بۆ سـێرڤـەرە کـەمـان, ${member}`)
+        .addField(':microphone2: | 𝐖𝐄𝐋𝐂𝐎𝐌𝐄🌹', `بەخـێربێیت بۆ سـێرڤـەریLED GAMING, ${member}`)
         .addField(':id: | ئــایــدی میــمــبــەر :', "**[" + `${member.id}` + "]**")
         .addField(':1234: | تـۆکـەسی ژمارە', `${member.guild.memberCount}`)
         .addField("𝐍𝐀𝐌𝐄", `<@` + `${member.id}` + `>`, true)
