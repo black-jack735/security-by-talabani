@@ -27,7 +27,7 @@ client.on('guildMemberAdd', member => {
  
  
 client.on('guildMemberAdd', member => {
-    let channel = member.guild.channels.find('name', '-welcome');
+    let channel = member.guild.channels.find('name', '✪⳺𝗪𝗘𝗟𝗖ⓞ𝗠𝗘⳻');
     let memberavatar = member.user.avatarURL
         if (!channel) return;
         let embed = new Discord.RichEmbed()
@@ -59,7 +59,7 @@ client.on('guildMemberRemove', member => {
         .addField('Bye Bye :(', 'We will all miss you!')
         .addField('The server now as', `${member.guild.memberCount}` + " members")
         .setFooter(`**${member.guild.name}`)
-        .setTimestamp(Imajewelcome)
+        .setTimestamp()
  
         channel.sendEmbed(embed);
 });
@@ -67,4 +67,4 @@ client.on('guildMemberRemove', member => {
  
    
  
-client.login('NjkyNzA5NzI1NjYxNDI5Nzky.Xnyebw.-m9pIR3T1e6WX2ZEvAKSkW5IJ0I');
+client.login('NjkyNTU2NzA1Nzg3MDE5Mjk1.Xn1Sdw.IDrP7gWDFXLKZp6CC-MMFlxS6Ws');
