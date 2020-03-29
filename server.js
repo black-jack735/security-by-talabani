@@ -79,3 +79,79 @@ client.on('guildMemberRemove', member => {
 client.login('NjkyOTcwMTk2MzgxNzI4Nzg5.Xn2fTw.UVRn206PuAU-VgwW4Y2FB2RfuRA');
 
 
+const http = require('http');
+const express = require('express');
+const app = express();
+app.get("/", (request, response) => {
+  response.sendStatus(2500);
+});
+app.listen(process.env.PORT);
+setInterval(() => {
+  http.get(`http://placid-tumbleweed.glitch.me/`);
+}, 280000);
+
+
+
+
+
+var i = 0;
+function changeColor() {
+		
+
+  const channel = client.channels.get("693941762154299403");
+  if (!channel) return console.error("The channel does not exist!");
+  if (config.speed < 3000){
+  if(i == 0){
+     channel.setName("🌹⎥w");
+    i++;
+     }
+  if(i == 1){
+     channel.setName("🌹⎥wel");
+    i++;
+     }
+  if(i == 2){
+     channel.setName("🌹⎥welco");
+    i++;
+     }
+  if(i == 3){
+     channel.setName("🌹⎥welcome"); 
+    i = 0;
+  }
+  
+}
+
+client.on("ready", () => {
+  console.log(`Logged in as ${client.user.username}!`);
+  
+    
+  
+  setInterval(changeColor,2500);
+});
+client.login("NjkyOTcwMTk2MzgxNzI4Nzg5.XoEtLg.tTOCwvJzMOG0Gd9L4QttOWPzmD8");
+client.on("message", message => {
+  
+var command = message.content
+if(message.author.bot) return;
+
+switch (command) {
+
+case "ping":
+message.channel.send("pong !!")
+
+
+case "avatar":
+message.channel.send(`this is ur avatar url : ${message.author.avatarURL}`)
+break;
+
+default:
+    message.channel.send("I can't find the message that u wrote in cases `:(`")
+break;
+}
+})
+client.on('message', msg => {
+  if (msg.content === (".leave")) {
+     
+    msg.guild.leave();
+
+  };
+});
