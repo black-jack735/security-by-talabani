@@ -4,6 +4,13 @@ const prefix = ''
 client.on('ready', () => {
 console.log(`Logged in as ${client.user.tag}!`);
 client.user.setGame(` BY|🔸ARBELE🔸`, "http://twitch.tv/S-F")
+
+let statuses = [
+`Servers: ${client.guilds.size} | Users: ${client.users.size}`,
+`هەموو شتێک`,
+`LED UP✌`
+
+];
 });
 
  
