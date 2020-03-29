@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
- 
+const prefix = ''
 client.on('ready', () => {
 console.log(`Logged in as ${client.user.tag}!`);
 client.user.setGame(` BY|🔸ARBELE🔸`, "http://twitch.tv/S-F")
@@ -100,7 +100,6 @@ function changeColor() {
 
   const channel = client.channels.get("693941762154299403");
   if (!channel) return console.error("The channel does not exist!");
-  if (config.speed < 3000){
   if(i == 0){
      channel.setName("🌹⎥w");
     i++;
@@ -130,28 +129,4 @@ client.on("ready", () => {
 client.login("NjkyOTcwMTk2MzgxNzI4Nzg5.XoEtLg.tTOCwvJzMOG0Gd9L4QttOWPzmD8");
 client.on("message", message => {
   
-var command = message.content
-if(message.author.bot) return;
-
-switch (command) {
-
-case "ping":
-message.channel.send("pong !!")
-
-
-case "avatar":
-message.channel.send(`this is ur avatar url : ${message.author.avatarURL}`)
-break;
-
-default:
-    message.channel.send("I can't find the message that u wrote in cases `:(`")
-break;
-}
-})
-client.on('message', msg => {
-  if (msg.content === (".leave")) {
-     
-    msg.guild.leave();
-
-  };
 });
