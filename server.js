@@ -5,12 +5,7 @@ client.on('ready', () => {
 console.log(`Logged in as ${client.user.tag}!`);
 client.user.setGame(` BY|🔸ARBELE🔸`, "http://twitch.tv/S-F")
 
-let statuses = [
-`Servers: ${client.guilds.size} | Users: ${client.users.size}`,
-`هەموو شتێک`,
-`LED UP✌`
-
-];
+  
 });
 
  
@@ -33,7 +28,7 @@ client.on('guildMemberAdd', member => {
    member.send(embed)
 });
  
- 
+ /////////////////////
  
 client.on('guildMemberAdd', member => {
     let channel = member.guild.channels.find('name', '🌹⎥welcome');
@@ -62,7 +57,7 @@ client.on('guildMemberAdd', member => {
 });
  
  
- 
+ //////////////////////
 client.on('guildMemberRemove', member => {
     let channel = member.guild.channels.find('name', '🔴⎥left');
     let memberavatar = member.user.avatarURL
@@ -81,7 +76,7 @@ client.on('guildMemberRemove', member => {
 });
  
  
-   
+ ///////////////////  
  
 client.login('NjkyOTcwMTk2MzgxNzI4Nzg5.Xn2fTw.UVRn206PuAU-VgwW4Y2FB2RfuRA');
 
