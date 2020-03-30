@@ -4,9 +4,7 @@ const prefix = ''
 client.on('ready', () => {
 console.log(`Logged in as ${client.user.tag}!`);
 client.user.setGame(` BY|🔸ARBELE🔸`, "http://twitch.tv/S-F")
-
-client.user.setActivity(`|🔸ARBELE🔸|´,)
-  
+ 
 });
 
  
@@ -70,7 +68,7 @@ client.on('guildMemberRemove', member => {
         .addField('🗑├چــووە دەرەوە لەسێرڤـــەر┤🗑',';(')
         .addField('✶⊶⊷⊶⊷❍⊶⊷⊶⊷✶;(','⳺👋خــوات لــەگــەڵ👋⳻')
         .addField('⳺☟مــیــمــبەرەکــان ماوە⳻', `${member.guild.memberCount}` + " ڪــەس")
-        .setFooter(`**${member.guild.name}`)
+        .setFooter(`${member.guild.name}`)
         .setTimestamp()
  
         channel.sendEmbed(embed);
