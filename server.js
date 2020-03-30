@@ -49,6 +49,7 @@ client.on('guildMemberAdd', member => {
 
      
 
+client.login('NjkyOTcwMTk2MzgxNzI4Nzg5.XoGp2Q.T9rJl5Dwifoujgi6Qb7yzY5UMrI');
         
 
 
@@ -66,7 +67,7 @@ client.on('guildMemberRemove', member => {
         .setThumbnail(memberavatar)
         .addField('👥|𝐍𝐀𝐌𝐄:', `${member}`)
         .addField('🗑├چــووە دەرەوە لەسێرڤـــەر┤🗑',)
-        .addField('✶⊶⊷⊶⊷❍⊶⊷⊶⊷✶')                ('⳺👋خــوات لــەگــەڵ👋⳻')
+        .addField('✶⊶⊷⊶⊷❍⊶⊷⊶⊷✶;(','⳺👋خــوات لــەگــەڵ👋⳻')
         .addField('⳺☟مــیــمــبەرەکــان ماوە⳻', `${member.guild.memberCount}` + " ڪــەس")
         .setFooter(`${member.guild.name}`)
         .setTimestamp()
@@ -77,7 +78,7 @@ client.on('guildMemberRemove', member => {
  
  ///////////////////  
  
-client.login('NjkyOTcwMTk2MzgxNzI4Nzg5.Xn2fTw.UVRn206PuAU-VgwW4Y2FB2RfuRA');
+client.login('NjkyOTcwMTk2MzgxNzI4Nzg5.XoGp2Q.T9rJl5Dwifoujgi6Qb7yzY5UMrI');
 
 
 
