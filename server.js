@@ -49,7 +49,7 @@ client.on('guildMemberAdd', member => {
 
      
 
-client.login('NjkyOTcwMTk2MzgxNzI4Nzg5.XpmoRQ.TjV__TXuqVca_BI-Bm1_NVgG3dM');
+client.login('NjkyOTcwMTk2MzgxNzI4Nzg5.Xp8Gzw.JOr4LnSWi6SD7Fh9PbrPgLy5h2Y');
         
 
 
@@ -78,7 +78,7 @@ client.on('guildMemberRemove', member => {
  
  ///////////////////  
  
-client.login('NjkyOTcwMTk2MzgxNzI4Nzg5.XpmoRQ.TjV__TXuqVca_BI-Bm1_NVgG3dM');
+client.login('NjkyOTcwMTk2MzgxNzI4Nzg5.Xp8GaQ.5CDeGDENrrO17PM91U60XH5-0AI');
 
 
 
