@@ -49,7 +49,7 @@ client.on('guildMemberAdd', member => {
 
      
 
-client.login('');
+client.login('token');
         
 
 
