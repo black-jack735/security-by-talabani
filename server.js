@@ -49,7 +49,7 @@ client.on('guildMemberAdd', member => {
 
      
 
-client.login('NzA2NjYyOTk5ODY3MzkyMDIx.Xq9hbg.psUrzlj20nbuMarP4G4cWYdCjb4');
+client.login('');
         
 
 
@@ -78,7 +78,7 @@ client.on('guildMemberRemove', member => {
  
  ///////////////////  
  
-client.login('NzA2NjYyOTk5ODY3MzkyMDIx.Xq9hbg.psUrzlj20nbuMarP4G4cWYdCjb4');
+client.login('');
 
 
 
