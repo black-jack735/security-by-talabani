@@ -3,7 +3,7 @@ const client = new Discord.Client();
 const prefix = ''
 client.on('ready', () => {
 console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(` BY|🔸ARBELE🔸|`, "http://twitch.tv/S-F")
+client.user.setGame(` BY|🔸VɪP🔸|`, "http://twitch.tv/S-F")
  
 });
 
@@ -30,18 +30,18 @@ client.on('guildMemberAdd', member => {
  /////////////////////
  
 client.on('guildMemberAdd', member => {
-    let channel = member.guild.channels.find('name', '🌹⎥welcome');
+    let channel = member.guild.channels.find('name', '│𝚆𝙴𝙻𝙲𝙾𝙼𝙴');
     let memberavatar = member.user.avatarURL
         if (!channel) return;
         let embed = new Discord.RichEmbed()
         .setColor('RANDOM')
         .setThumbnail(memberavatar)
         .addField(':bust_in_silhouette: | نـــاو ： ', `${member}`)
-        .addField(':nazar_amulet:  | 𝐖𝐄𝐋𝐂𝐎𝐌𝐄🌹', "**¦" + `بەخـێربێیت بۆ سـێرڤـەری             LED GAMING` + "¦**")
+        .addField(':nazar_amulet:  | 𝐖𝐄𝐋𝐂𝐎𝐌𝐄🌹', "**¦" + `بەخـێربێیت بۆ سـێرڤـەرەکەمان` + "¦**")
         .addField(':id: | ئــایــدی میــمــبــەر ：', "**⌜" + `${member.id}` + "⌟**") 
         .addField(':1234: | تـۆکـەسی ژمارە：', "**¦" + `${member.guild.memberCount}` + "¦**")
         .addField(':shield:|𝐒𝐄𝐑𝐕𝐄𝐑：', `${member.guild.name}`, true )
-        .setImage("https://cdn.discordapp.com/attachments/637930050255061035/693198092513574932/20200327_234110.gif")
+        .setImage("  ")
         .setFooter(`◢${member.guild.name}◣`)
         .setTimestamp()
  
@@ -49,7 +49,7 @@ client.on('guildMemberAdd', member => {
 
      
 
-client.login('token');
+client.login('NzA2NjYyOTk5ODY3MzkyMDIx.Xq9hbg.psUrzlj20nbuMarP4G4cWYdCjb4');
         
 
 
@@ -59,7 +59,7 @@ client.login('token');
  
  //////////////////////
 client.on('guildMemberRemove', member => {
-    let channel = member.guild.channels.find('name', '🔴⎥left');
+    let channel = member.guild.channels.find('name', '│𝙻𝙴𝙵𝚃');
     let memberavatar = member.user.avatarURL
         if (!channel) return;
         let embed = new Discord.RichEmbed()
@@ -78,7 +78,7 @@ client.on('guildMemberRemove', member => {
  
  ///////////////////  
  
-client.login('Token');
+client.login('NzA2NjYyOTk5ODY3MzkyMDIx.Xq9hbg.psUrzlj20nbuMarP4G4cWYdCjb4');
 
 
 
