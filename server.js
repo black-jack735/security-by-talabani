@@ -3,7 +3,7 @@ const client = new Discord.Client();
 const prefix = ''
 client.on('ready', () => {
 console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(` BY|🔸VɪP🔸|`, "http://twitch.tv/S-F")
+client.user.setGame(` BY|🔸 Hama YK 🔸|`, "http://twitch.tv/S-F")
  
 });
 
@@ -30,7 +30,7 @@ client.on('guildMemberAdd', member => {
  /////////////////////
  
 client.on('guildMemberAdd', member => {
-    let channel = member.guild.channels.find('name', '│𝚆𝙴𝙻𝙲𝙾𝙼𝙴');
+    let channel = member.guild.channels.find('name', 'welcome');
     let memberavatar = member.user.avatarURL
         if (!channel) return;
         let embed = new Discord.RichEmbed()
@@ -41,7 +41,7 @@ client.on('guildMemberAdd', member => {
         .addField(':id: | ئــایــدی میــمــبــەر ：', "**⌜" + `${member.id}` + "⌟**") 
         .addField(':1234: | تـۆکـەسی ژمارە：', "**¦" + `${member.guild.memberCount}` + "¦**")
         .addField(':shield:|𝐒𝐄𝐑𝐕𝐄𝐑：', `${member.guild.name}`, true )
-        .setImage("  ")
+        .setImage(" https://cdn.discordapp.com/attachments/696541070258995281/706847818622566470/giphy_1.gif ")
         .setFooter(`◢${member.guild.name}◣`)
         .setTimestamp()
  
@@ -49,7 +49,7 @@ client.on('guildMemberAdd', member => {
 
      
 
-client.login('');
+client.login('NzA3NDcyNTQxMTEwNzYzNTYx.XrJTQQ.IPpje-1IXzCtegd2RATpDrmR1Sg');
         
 
 
@@ -59,7 +59,7 @@ client.login('');
  
  //////////////////////
 client.on('guildMemberRemove', member => {
-    let channel = member.guild.channels.find('name', '│𝙻𝙴𝙵𝚃');
+    let channel = member.guild.channels.find('name', 'server-left');
     let memberavatar = member.user.avatarURL
         if (!channel) return;
         let embed = new Discord.RichEmbed()
@@ -78,7 +78,7 @@ client.on('guildMemberRemove', member => {
  
  ///////////////////  
  
-client.login('');
+client.login('NzA3NDcyNTQxMTEwNzYzNTYx.XrJTQQ.IPpje-1IXzCtegd2RATpDrmR1Sg');
 
 
 
