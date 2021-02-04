@@ -4,8 +4,19 @@ const prefix = 'f!'
 const fs = require ("fs")
 client.on('ready', () => {
 console.log(`Logged in as ${client.user.tag}!`);
- 
 });
+///
+client.login(process.env.TOKEN)
+///
+client.on("ready", () => {
+  console.log('♔♔♔♔♔♔♔♔♔♔♔♔♔♔♔♔♔♔♔');
+  console.log('By Talabani');////KP
+console.log('♔♔♔♔♔♔♔♔♔♔♔♔♔♔♔♔♔♔♔');
+console.log(`Logged in as ${client.user.tag}!`);
+  client.user.setActivity(`${prefix}help|Servers:${client.guilds.size} Users: ${client.user.size}`)///////shtek bnwsa
+ client.user.setStatus("idle")////
+  console.log(`Logined`)
+})
 ///
 client.on("message", message => {
 
