@@ -24,11 +24,95 @@ ${prefix}settings limitsroleC
 ${prefix}settings limitschannelD
 ${prefix}settings limitschannelC
 ${prefix}settings limitstime
+
+**Moderation**
+${prefix}lock
+${prefix}unlock
+${prefix}mute
+${prefix}unmute
+${prefix}ban
+${prefix}unban
+${prefix}setLog
+
+**Genaral**
+
 `);
     message.channel.sendEmbed(embed);
   }
 });
-///
+///Moderation
+client.on('message', message => {
+  
+if(message.content.startsWith(prefix + "mute")) {
+if(!message.member.hasPermission('ADMINISTRATOR'))  return message.channel.send(" **you need the** ``Administrator`` **permission!**").then(msg => msg.delete(3000));
+if(!message.guild.member(client.user).hasPermission("MANAGE_MESSAGES"))   return message.channel.send(  " **I need the** ``Mange_Messages ``  **permission!** ").then(msg => msg.delete(3000));
+var mention= message.mentions.members.first()
+  if(!mention) return message.channel.send(`** MENTION SOMEONE : :no_entry_sign: **`)
+  var role = message.guild.roles.find("Muted")
+  let edward = new Discord.RichEmbed()
+  .setAuthor(message.author.username,message.author.avatarURL)
+.setDescription(`**${mention} | Has been Muted From The Server! **`)
+    .setColor('#000000').setColor('#36393e')
+.setTimestamp()
+
+  .setFooter(mention.user.username,mention.user.avatarURL)
+   mention.addRole(role)
+  message.channel.sendEmbed(edward)
+}});
+
+
+
+
+client.on('message', message => {
+  
+if(message.content.startsWith(prefix + "unmute")) {
+if(!message.member.hasPermission('ADMINISTRATOR'))  return message.channel.send(" **you need the** ``Administrator`` **permission!**").then(msg => msg.delete(3000));
+if(!message.guild.member(client.user).hasPermission("MANAGE_MESSAGES"))   return message.channel.send(  " **I need the** ``Mange_Messages ``  **permission!** ").then(msg => msg.delete(3000));
+var mention= message.mentions.members.first()
+  if(!mention) return message.channel.send(`** MENTION SOMEONE : :no_entry_sign: **`)
+  var role = message.guild.roles.find("Muted")
+  let edward = new Discord.RichEmbed()
+  .setAuthor(message.author.username,message.author.avatarURL)
+.setDescription(`**${mention} | Has been UnMuted From The Server! **`)
+    .setColor('#000000').setColor('#36393e')
+.setTimestamp()
+
+  .setFooter(mention.user.username,mention.user.avatarURL)
+   mention.removeRole(role)
+  message.channel.sendEmbed(edward)
+}});
+client.on("message", message => {
+  if (message.content === prefix + "lock") {
+    if (!message.channel.guild)
+      return message.reply("** This command only for servers**");
+ 
+    if (!message.member.hasPermission("MANAGE_MESSAGES"))
+      return message.reply("Sorry you dont have permission");
+    message.channel
+      .overwritePermissions(message.guild.id, {
+        SEND_MESSAGES: false
+      })
+      .then(() => {
+        message.reply("**🔒 Locked chat**");
+      });
+  }
+  
+  if (message.content === prefix + "unlock") {
+    if (!message.channel.guild)
+      return message.reply("** This command only for servers**");
+ 
+    if (!message.member.hasPermission("MANAGE_MESSAGES"))
+      return message.reply("Sorry you donst have permisssion");
+    message.channel
+      .overwritePermissions(message.guild.id, {
+        SEND_MESSAGES: true
+      })
+      .then(() => {
+        message.reply("**🔓 Unlock chat**");
+      });
+  }
+});
+///security
 let anti = JSON.parse(fs.readFileSync("./antigrefff.json", "UTF8"));
 let config = JSON.parse(fs.readFileSync("./server.json", "UTF8"));
 client.on("message", message => {
