@@ -45,6 +45,116 @@ ${prefix}daily
   }
 });
 ///genaral
+const top = JSON.parse(fs.readFileSync("top.json", "UTF8"));
+ 
+function save() {
+    fs.writeFileSync("./top.json", JSON.stringify(top, null, 4));
+}
+client.on("voiceStateUpdate", async function(oldMember, newMember) {
+    if (newMember.user.bot) return;
+    if (!top[newMember.guild.id]) top[newMember.guild.id] = {};
+    if (!top[newMember.guild.id][newMember.user.id]) top[newMember.guild.id][newMember.user.id] = {
+        "text": 0,
+        "voice": parseInt(Math.random()*10),
+        "msgs": 0,
+        "id": newMember.user.id
+    }
+    save();
+    if (!oldMember.voiceChannel && newMember.voiceChannel) {
+        var addXP = setInterval(async function () {
+            top[newMember.guild.id][newMember.user.id].voice+=parseInt(Math.random()*4);
+            save();
+            if (!newMember.voiceChannel) {
+                clearInterval(addXP);
+            }
+        }, 60000);
+    }
+});
+client.on("message", async function (message) {
+    if (message.author.bot) return;
+    if (!message.guild) return;
+    if (!top[message.guild.id]) top[message.guild.id] = {};
+    if (!top[message.guild.id][message.author.id]) top[message.guild.id][message.author.id] = {
+        "text": parseInt(Math.random()*10),
+        "voice": 1,
+        "msgs": 0,
+        "id": message.author.id
+    }
+    if (top[message.guild.id][message.author.id].msgs > 10) {
+        top[message.guild.id][message.author.id].text += parseInt(Math.random()*4);
+        top[message.guild.id][message.author.id].msgs = 0;
+    }
+    save();
+    var args = message.content.split(" ");
+    var cmd = args[0].toLowerCase();
+    if (!message.content.startsWith(prefix)) return;
+  if(message.content.startsWith(prefix + "top text")) {
+            var topArray = Object.values(top[message.guild.id]);
+            var num = 0;
+            var textStr = `${topArray.sort((a, b) => b.text - a.text).slice(0, 10).filter(user => user.text > 0 && message.guild.members.get(user.id)).map(function (user) {
+                if (user.text > 0) {
+                    return `**#${++num} | <@${user.id}> XP: ${user.text} **`
+                }
+            }).join("n")}`;
+            var embed = new Discord.RichEmbed()
+            .setAuthor("📋 | Guild Score Leaderboards", message.guild.iconURL)
+  .setColor("13B813")
+        .addField(`**:speech_balloon: | TEXT LEADERBOARD**`, `${textStr}   \n\n **✨ | For More: ${prefix}top text**`, true)  
+        .setFooter(message.author.tag, message.author.displayAvatarURL)
+            .setTimestamp()
+            message.channel.send({
+                embed: embed
+            });
+  } else {
+    if(message.content.startsWith(prefix + "top voice")) {
+            var topArray = Object.values(top[message.guild.id]);
+            var num = 0;
+            var voiceStr = `${topArray.sort((a, b) => b.voice - a.voice).slice(0, 10).filter(user => user.voice > 0 && message.guild.members.get(user.id)).map(function (user) {
+                if (user.voice > 0) {
+                    return `**#${++num} | <@${user.id}> XP: ${user.voice}**`
+                }
+            }).join("n")}`;
+            var embed = new Discord.RichEmbed()
+            .setAuthor("📋 | Guild Score Leaderboards", message.guild.iconURL)
+  .setColor("13B813")
+        .addField(`**:microphone2: | VOICE LEADERBOARD**`, `${voiceStr}   \n\n **:sparkles: More?** ${prefix}top voice`, true)
+  
+        .setFooter(message.author.tag, message.author.displayAvatarURL)
+            .setTimestamp()  
+            message.channel.send({
+                embed: embed
+            });
+  } else {
+       if(message.content.startsWith(prefix + "top")) {
+            var topArray = Object.values(top[message.guild.id]);
+            var num = 0;
+            var textStr = `${topArray.sort((a, b) => b.text - a.text).slice(0, 5).filter(user => user.text > 0 && message.guild.members.get(user.id)).map(function (user) {
+                if (user.text > 0) {
+                    return `**#${++num} | <@${user.id}> XP: ${user.text} **`
+                }
+            }).join("n")}`;
+            num = 0;
+            var voiceStr = `${topArray.sort((a, b) => b.voice - a.voice).slice(0, 5).filter(user => user.voice > 0 && message.guild.members.get(user.id)).map(function (user) {
+                if (user.voice > 0) {
+                    return `**#${++num} | <@${user.id}> XP: ${user.voice} **`
+                }
+            }).join("n")}`;
+            var embed = new Discord.RichEmbed()  
+            .setAuthor("📋 | Guild Score Leaderboards", message.guild.iconURL)
+            .addField("**TOP 5 TEXT :speech_balloon:**", `${textStr}  nn  **:sparkles: More?** ${prefix}top text`, true)
+            .addField("**TOP 5 VOICE :microphone2:**", `${voiceStr} nn **:sparkles: More?** ${prefix}top voice`, true)
+            .setFooter(message.author.tag, message.author.displayAvatarURL)
+            .setTimestamp()
+            .setColor("13B813");
+            message.channel.send({
+                embed: embed
+            
+  
+            });
+        }
+  }
+  }
+});
 const Canvas = require('canvas')
 const credits = JSON.parse(fs.readFileSync("./credits.json"));
 var time = require("./time.json");
@@ -257,6 +367,115 @@ message.channel.sendEmbed(embed)
 }
 });
 ///Moderation
+client.on("message", async msg => {
+
+  if (!msg.content.startsWith(prefix)) return;
+  let command = msg.content.split(" ")[0];
+  command = command.slice(prefix.length);
+  let args = msg.content.split(" ").slice(1);
+
+  if (command === "clear") {
+    const emoji = client.emojis.find("name", "wastebasket");
+    let textxt = args.slice(0).join("");
+    if (msg.member.hasPermission("MANAGE_MESSAGES")) {
+      if (textxt == "") {
+        msg.delete().then;
+        msg.channel
+          .send("***```ژمارەی ئەو نامانە دابنێ کە دەتەوێت بیسڕێتەوە 👌```***")
+          .then(m => m.delete(3000));
+      } else {
+        msg.delete().then;
+        msg.delete().then;
+        msg.channel.bulkDelete(textxt);
+        msg.channel
+          .send("```ژمارەی ئەو نامانەی سکان کراوە: " + textxt + "\n```")
+          .then(m => m.delete(3000));
+      }
+    }
+  }
+});
+     const ms = require("ms"),
+       pms = require("pretty-ms");
+ 
+exports.run = (bot, message, args, Discord, disEmbed, Logchan, Reg, mal, modMsg) => {
+  if (!message.member.hasPermission("MANAGE_MESSAGES")) return disEmbed("mute", "Sorry, but you do not have valid permissions.");
+    let tomute = message.guild.member(message.mentions.users.first());
+      if (!tomute) return disEmbed("mute","Couldn't find user.");
+      if (message.member.roles.map(r => r.position).sort((a,b) => b-a)[0] <= tomute.roles.map(r => r.position).sort((a,b) => b-a)[0]) return disEmbed("mute", "<@"+tomute.id+"> is either the same, or higher role than you.");
+      if (tomute.roles.find("name", "Muted")) return disEmbed("mute", "<@"+tomute.id+"> is already muted");
+        let muterole = message.guild.roles.find("name", "Muted");
+          if (!muterole) {
+            try {
+              muterole = message.guild.createRole({
+                name: "Muted",
+                color: "#000000",
+                permissions: []
+              })
+              message.channel.send("`Muted` was created.")
+              message.guild.channels.forEach(async (channel, id) => {
+                await channel.overwritePermissions(muterole, {
+                  SEND_MESSAGES: false,
+                  ADD_REACTIONS: false
+                });
+              });
+            } catch (e) {
+              console.log(e.stack);
+            }
+          }
+          message.guild.channels.forEach(async (channel, id) => {
+            await channel.overwritePermissions(muterole, {
+              SEND_MESSAGES: false,
+              ADD_REACTIONS: false
+            });
+          });
+          let mutetime = args.slice(1);
+          let time = 1
+            for(var i = 0; i < mutetime.length; i++) {
+              let mt = ms(mutetime[i])
+              if(!mt) return disEmbed("mute", "Invalid time");
+              time = (time + mt)
+            }
+            if (!mutetime) return disEmbed("mute", "You didn't specify a time.");
+              async function a(){
+                await (tomute.addRole(muterole.id));
+              }
+              a();
+ 
+                const chl = Logchan[message.guild.id].modlog,
+                      modLog = bot.channels.get(chl),
+                      mutime = pms(time).replace(" 0s",""),
+                      embed = new Discord.RichEmbed()
+                        .setAuthor("Mute", bot.user.avatarURL)
+                        .setTimestamp()
+                        .setDescription("**User:** `" + message.mentions.users.first().tag + " (" + tomute.id + ")`\n**By:** `" + message.author.tag + " (" + 
+                                        message.author.id + ")`\n**Time:** `" + mutime + "`")
+                        .setColor(0xf4427a),
+                      ambed = new Discord.RichEmbed()
+                        .setColor(0xf4427a)
+                        .setThumbnail(tomute.avatarURL)
+                        .setAuthor("Hackban",message.author.avatarURL)
+                        .setDescription("**<@"+message.author.id+"> muted <@"+tomute.id+">\nTime:** "+mutime)
+                        .setTimestamp()
+                      message.channel.send(ambed)
+                      modLog.send(embed)
+              setTimeout(function() {
+                tomute.removeRole(muterole.id);
+                const embed = new Discord.RichEmbed()
+                  .setAuthor("Unmute", bot.user.avatarURL)
+                  .setTimestamp()
+                  .setDescription("**User:** `" + message.mentions.users.first().tag + " (" + tomute.id + ")`\n**By:** `" + bot.user.tag + " (" + bot.user.id + ")`")
+                  .setColor(0xf4427a),
+                ambed = new Discord.RichEmbed()
+                  .setAuthor("Unmute", bot.user.avatarURL)
+                  .setTimestamp()
+                  .setDescription("<@"+tomute.id+"> has been unmuted.")
+                  .setColor(0xf4427a)
+                modLog.send(embed)
+                message.channel.send(ambed)
+              }, time);
+ 
+};
+
 client.on("message", message => {
   let args = message.content.split(" ");
   if (message.author.bot) return;
@@ -298,46 +517,7 @@ ${prefix}ban ${message.author} 1w
     }
   }
 });
-client.on('message', message => {
-  
-if(message.content.startsWith(prefix + "mute")) {
-if(!message.member.hasPermission('ADMINISTRATOR'))  return message.channel.send(" **you need the** ``Administrator`` **permission!**").then(msg => msg.delete(3000));
-if(!message.guild.member(client.user).hasPermission("MANAGE_MESSAGES"))   return message.channel.send(  " **I need the** ``Mange_Messages ``  **permission!** ").then(msg => msg.delete(3000));
-var mention= message.mentions.members.first()
-  if(!mention) return message.channel.send(`** MENTION SOMEONE : :no_entry_sign: **`)
-  var role = message.guild.roles.find("Muted")
-  let edward = new Discord.RichEmbed()
-  .setAuthor(message.author.username,message.author.avatarURL)
-.setDescription(`**${mention} | Has been Muted From The Server! **`)
-    .setColor('#000000').setColor('#36393e')
-.setTimestamp()
 
-  .setFooter(mention.user.username,mention.user.avatarURL)
-   mention.addRole(role)
-  message.channel.sendEmbed(edward)
-}});
-
-
-
-
-client.on('message', message => {
-  
-if(message.content.startsWith(prefix + "unmute")) {
-if(!message.member.hasPermission('ADMINISTRATOR'))  return message.channel.send(" **you need the** ``Administrator`` **permission!**").then(msg => msg.delete(3000));
-if(!message.guild.member(client.user).hasPermission("MANAGE_MESSAGES"))   return message.channel.send(  " **I need the** ``Mange_Messages ``  **permission!** ").then(msg => msg.delete(3000));
-var mention= message.mentions.members.first()
-  if(!mention) return message.channel.send(`** MENTION SOMEONE : :no_entry_sign: **`)
-  var role = message.guild.roles.find("Muted")
-  let edward = new Discord.RichEmbed()
-  .setAuthor(message.author.username,message.author.avatarURL)
-.setDescription(`**${mention} | Has been UnMuted From The Server! **`)
-    .setColor('#000000').setColor('#36393e')
-.setTimestamp()
-
-  .setFooter(mention.user.username,mention.user.avatarURL)
-   mention.removeRole(role)
-  message.channel.sendEmbed(edward)
-}});
 client.on("message", message => {
   if (message.content === prefix + "lock") {
     if (!message.channel.guild)
