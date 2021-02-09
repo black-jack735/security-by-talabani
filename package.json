@@ -91,7 +91,7 @@
     "hex.js": "^1.0.1"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "node talabani.js"
   },
   "skripts": {
     "start": "node music.js"
